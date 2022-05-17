@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [BaseController::class, 'mainProduct']);
+
+Route::get('/shampoo', [BaseController::class, 'shampoo']);
+
+Route::get('/quick', [BaseController::class, 'quick']);
