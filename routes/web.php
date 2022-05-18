@@ -23,3 +23,15 @@ Route::get('/', [BaseController::class, 'mainProduct']);
 Route::get('/shampoo', [BaseController::class, 'shampoo']);
 
 Route::get('/quick', [BaseController::class, 'quick']);
+
+Route::get('/brush', [BaseController::class, 'brush']);
+
+Route::get('/foam', [BaseController::class, 'foam']);
+
+Route::get('/sponge', [BaseController::class, 'sponge']);
+
+Route::get('/microfibre', [BaseController::class, 'microfibre']);
+
+Route::get('/wax', [BaseController::class, 'wax']);
+
+Route::get('/single', [BaseController::class, 'single']);

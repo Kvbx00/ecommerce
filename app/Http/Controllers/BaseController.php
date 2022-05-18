@@ -21,4 +21,34 @@ class BaseController extends Controller
         $show = DB::table('product')->where('product_category', 'quick')->get();
         return view('quick', compact('show'));
     }
+
+    public function brush(){
+        $show = DB::table('product')->where('product_category', 'szczotka')->get();
+        return view('brush', compact('show'));
+    }
+
+    public function foam(){
+        $show = DB::table('product')->where('product_category', 'piana')->get();
+        return view('foam', compact('show'));
+    }
+
+    public function microfibre(){
+        $show = DB::table('product')->where('product_category', 'mikrofibra')->get();
+        return view('microfibre', compact('show'));
+    }
+
+    public function sponge(){
+        $show = DB::table('product')->where('product_category', 'gabka')->get();
+        return view('sponge', compact('show'));
+    }
+
+    public function wax(){
+        $show = DB::table('product')->where('product_category', 'wosk')->get();
+        return view('wax', compact('show'));
+    }
+
+    public function single(){
+        $show = DB::table('product')->get();
+        return view('single', compact('show'));
+    }
 }

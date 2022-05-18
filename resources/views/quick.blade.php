@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="foto/car.png" rel="icon">
   <style>
     .w3-sidebar a {
       font-family: "Roboto", sans-serif
@@ -38,18 +39,18 @@
 
     <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
       <a href="{{ url('shampoo') }}" class="w3-bar-item w3-button">Szampony</a>
-      <a href="#" class="w3-bar-item w3-button">Piany aktywne</a>
+      <a href="{{ url('foam') }}" class="w3-bar-item w3-button">Piany aktywne</a>
       <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
         Akcesoria <i class="fa fa-caret-down"></i>
       </a>
 
       <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Szczotki</a>
-        <a href="#" class="w3-bar-item w3-button">Gąbki</a>
-        <a href="#" class="w3-bar-item w3-button">Mikrofibry</a>
+        <a href="{{ url('brush') }}" class="w3-bar-item w3-button">Szczotki</a>
+        <a href="{{ url('sponge') }}" class="w3-bar-item w3-button">Gąbki</a>
+        <a href="{{ url('microfibre') }}" class="w3-bar-item w3-button">Mikrofibry</a>
       </div>
 
-      <a href="#" class="w3-bar-item w3-button">Woski</a>
+      <a href="{{ url('wax') }}" class="w3-bar-item w3-button">Woski</a>
       <a href="{{ url('quick') }}" class="w3-bar-item w3-button">Quick detailery</a>
     </div>
 
