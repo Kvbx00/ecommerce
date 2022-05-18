@@ -5,6 +5,7 @@
   <title>Kosmetyki samochodowe</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -82,7 +83,7 @@
 
 
     <!-- Product grid -->
-    <div class="main-div" style="display: flex; align-content: flex-start; flex-wrap: wrap; width:100%;">
+    <!-- <div class="main-div" style="display: flex; align-content: flex-start; flex-wrap: wrap; width:100%;">
       @foreach ($show as $showData)
       <div style="width:20%; margin: 23px;">
         <img src="{{$showData->image}}" style="width:100%;">
@@ -92,6 +93,33 @@
         </p>
       </div>
       @endforeach
+    </div> -->
+
+    <div class="main-single">
+      <div class="left-single">
+      @foreach ($show as $showData)
+        <img class="img-single" src="{{$showData->image}}" style="width:100%;">
+      @endforeach
+      </div>
+      <div class="right-single">
+      @foreach ($show as $showData)
+        <h2><b> {{$showData->product_name}} </b></h2>
+        <div class="desc-single">
+        {{$showData->product_description}}
+        </div>
+        <div class="availability-single">
+          <hr class="line">
+        Dostępność produktu: <b> {{$showData->product_availability}} </b> sztuk
+        <hr class="line">
+        </div>
+        <div class="price-single">
+        <h3><b> {{$showData->product_price}} zł </b></h3>
+        </div>
+        <div class="submit-single">
+        <button class="submit">DO KOSZYKA</button>
+        </div>
+      @endforeach
+      </div>
     </div>
 
     <!-- Footer -->

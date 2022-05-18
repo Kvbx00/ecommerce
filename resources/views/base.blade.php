@@ -102,7 +102,7 @@
       <div class="sub-div">
         <form id="GFG" action="single" method="GET">
             <input type="hidden" value="{{$showData->id}}" name="id"></input>
-            <button style="background: none; border: none; padding: 0; cursor: pointer">
+            <button class="hidden">
             <img src="{{$showData->image}}" style="width:100%;">
             <p>{{$showData->product_name}}<br></p>
             <b>{{$showData->product_price}} zł</b>

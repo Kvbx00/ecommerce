@@ -4,6 +4,7 @@
 <head>
   <title>Kosmetyki samochodowe</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -82,13 +83,18 @@
 
 
     <!-- Product grid -->
-    <div class="main-div" style="display: flex; align-content: flex-start; flex-wrap: wrap; width:100%;">
+    <div class="main-div">
       @foreach ($show as $showData)
-      <div style="width:20%; margin: 23px;">
-        <img src="{{$showData->image}}" style="width:100%;">
-        <p>{{$showData->product_name}}<br>
-          <b>{{$showData->product_price}} zł</b>
-        </p>
+      <div class="sub-div">
+        <form id="GFG" action="single" method="GET">
+          <input type="hidden" value="{{$showData->id}}" name="id"></input>
+          <button style="background: none; border: none; padding: 0; cursor: pointer">
+            <img src="{{$showData->image}}" style="width:100%;">
+            <p>{{$showData->product_name}}<br>
+              <b>{{$showData->product_price}} zł</b>
+            </p>
+          </button>
+        </form>
       </div>
       @endforeach
     </div>
