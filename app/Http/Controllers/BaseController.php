@@ -48,7 +48,8 @@ class BaseController extends Controller
     }
 
     public function single(){
-        $show = DB::table('product')->get();
+        $id = $_GET['id'];
+        $show = DB::table('product')->where('id', $id)->get();
         return view('single', compact('show'));
     }
 }

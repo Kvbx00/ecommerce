@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="single">
 
 <head>
   <title>Kosmetyki samochodowe</title>
@@ -88,7 +88,7 @@
         <img src="{{$showData->image}}" style="width:100%;">
         <p>{{$showData->product_name}}<br>
           <b>{{$showData->product_price}} zł</b>
-          b>{{$showData->product_description}} zł</b>
+          {{$showData->product_description}} zł
         </p>
       </div>
       @endforeach

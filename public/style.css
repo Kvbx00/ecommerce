@@ -1,0 +1,17 @@
+.main-div{
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.sub-div{
+    width:20%;
+    margin: 23px; 
+}
+
+.single{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
