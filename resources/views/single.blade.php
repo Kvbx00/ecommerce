@@ -76,8 +76,8 @@
     <header class="w3-container w3-xlarge">
       <p class="w3-left">Detailing store</p>
       <p class="w3-right">
-        <i class="fa fa-shopping-cart w3-margin-right"></i>
-        <i class="fa fa-search"></i>
+        <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:25%; margin-right:10px;">
+        <img src="foto/icons8-user-60.png" rel="user" style="width:25%;">
       </p>
     </header>
 
