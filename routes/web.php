@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,5 @@ Route::get('/microfibre', [BaseController::class, 'microfibre']);
 Route::get('/wax', [BaseController::class, 'wax']);
 
 Route::get('/single', [BaseController::class, 'single']);
+
+Route::get('/login', [LoginController::class, 'loginView']);

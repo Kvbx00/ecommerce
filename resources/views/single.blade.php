@@ -74,26 +74,12 @@
 
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
-      <p class="w3-left">Detailing store</p>
+    <a href="{{ url('/') }}"><p class="w3-left">Detailing store</p></a>
       <p class="w3-right">
         <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:25%; margin-right:10px;">
-        <img src="foto/icons8-user-60.png" rel="user" style="width:25%;">
+        <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:25%;"></a>
       </p>
     </header>
-
-
-    <!-- Product grid -->
-    <!-- <div class="main-div" style="display: flex; align-content: flex-start; flex-wrap: wrap; width:100%;">
-      @foreach ($show as $showData)
-      <div style="width:20%; margin: 23px;">
-        <img src="{{$showData->image}}" style="width:100%;">
-        <p>{{$showData->product_name}}<br>
-          <b>{{$showData->product_price}} zł</b>
-          {{$showData->product_description}} zł
-        </p>
-      </div>
-      @endforeach
-    </div> -->
 
     <div class="main-single">
       <div class="left-single">
