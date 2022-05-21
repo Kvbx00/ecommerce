@@ -74,11 +74,23 @@
 
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
-    <a href="{{ url('/') }}"><p class="w3-left">Detailing store</p></a>
-      <p class="w3-right">
-        <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:25%; margin-right:10px;">
-        <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:25%;"></a>
+
+      <a href="{{ url('/') }}">
+        <p class="w3-left">Detailing store</p>
+      </a>
+
+      <p class="navbar">
+      @if( auth()->check() )
+      {{ auth()->user()->name }}
+      <a href="{{ url('logout') }}">Wyloguj</a>
+      @else
+      <a href="{{ url('login') }}">Zaloguj</a>
+      <a href="{{ url('registration') }}">Zarejestruj</a>
+      @endif
+        <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:5%;">
+        <!-- <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:5%;"></a> -->
       </p>
+
     </header>
 
     <!-- Image header -->
@@ -100,13 +112,13 @@
     <div class="main-div">
       @foreach ($show as $showData)
       <div class="sub-div">
-        <form id="GFG" action="single" method="GET">
-            <input type="hidden" value="{{$showData->id}}" name="id"></input>
-            <button class="hidden">
+        <form action="single" method="GET">
+          <input type="hidden" value="{{$showData->id}}" name="id"></input>
+          <button class="hidden">
             <img src="{{$showData->image}}" style="width:100%;">
             <p>{{$showData->product_name}}<br></p>
             <b>{{$showData->product_price}} zł</b>
-            </button>
+          </button>
         </form>
       </div>
       @endforeach
@@ -167,7 +179,6 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
-
   </script>
 
 </body>

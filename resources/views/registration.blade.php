@@ -60,17 +60,17 @@
 
     <div class="login-main">
       <div>
-        <h3><b>Logowanie</b></h3>
+        <h3><b>Rejestracja</b></h3>
       </div>
-      <form method="POST" action="login" class="login-form">
-        {{ csrf_field() }}
+      <form action="registration" method="POST" class="login-form">
+      {{ csrf_field() }}
+        <input class="l-input" type="text" placeholder="Imię i nazwisko" name="name">
         <input class="l-input" type="text" placeholder="Email" name="email">
         <input class="l-input" type="password" placeholder="Hasło" name="password">
-        @if ($errors->has('message'))
-          {{ $errors->first('message') }}
-        @endif
-        <button class="submit-login" type="submit">Zaloguj</button></br>
-        <a href="{{ url('registration') }}" class="regirestration">Nie mam konta, chce się zarejestrować</a>
+        <input class="l-input" type="text" placeholder="Adres" name="adress">
+        <input class="l-input" type="text" placeholder="Numer telefonu" name="phone">
+        <button class="submit-login" type="submit">Zarejestruj</button></br>
+        <a href="{{ url('login') }}" class="regirestration">Mam już konto, chce się zalogować.</a>
       </form>
     </div>
 

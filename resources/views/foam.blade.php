@@ -77,7 +77,7 @@
     <a href="{{ url('/') }}"><p class="w3-left">Detailing store</p></a>
       <p class="w3-right">
         <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:25%; margin-right:10px;">
-        <img src="foto/icons8-user-60.png" rel="user" style="width:25%;">
+        <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:25%;"></a>
       </p>
     </header>
 

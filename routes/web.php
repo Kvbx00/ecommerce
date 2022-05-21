@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BaseController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,10 @@ Route::get('/wax', [BaseController::class, 'wax']);
 Route::get('/single', [BaseController::class, 'single']);
 
 Route::get('/login', [LoginController::class, 'loginView']);
+
+Route::get('/registration', [RegistrationController::class, 'registrationView']);
+Route::post('registration', [RegistrationController::class, 'create']);
+
+Route::get('/login', [SessionsController::class, 'loginView']);
+Route::post('/login', [SessionsController::class, 'sessionStart']);
+Route::get('/logout', [SessionsController::class, 'sessionDestroy']);
