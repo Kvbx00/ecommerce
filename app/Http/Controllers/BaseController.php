@@ -52,4 +52,8 @@ class BaseController extends Controller
         $show = DB::table('product')->where('id', $id)->get();
         return view('single', compact('show'));
     }
+
+    public function admin(){
+        return view('admin');
+    }
 }

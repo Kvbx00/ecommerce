@@ -75,9 +75,20 @@
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
     <a href="{{ url('/') }}"><p class="w3-left">Detailing store</p></a>
-      <p class="w3-right">
-        <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:25%; margin-right:10px;">
-        <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:25%;"></a>
+    <p class="navbar">
+      @if( auth()->check() )
+      Zalogowany jako: &nbsp;
+      <b>{{ auth()->user()->name }}</b>
+      &nbsp;
+      <a href="{{ url('logout') }}"><img src="foto/exit.png" rel="logout" style="width:4%;"></a>
+      @else
+      <a href="{{ url('login') }}"><img src="foto/enter.png" rel="login" style="width:4%;"></a>
+      <a href="{{ url('registration') }}"><img src="foto/add-user.png" rel="register" style="width:4%;"></a>
+      @endif
+      @if(Auth::check() && Auth::user()->role == "1")
+      <a href="{{ url('admin') }}"><img src="foto/leadership.png" rel="admin" style="width:4%;"></a>
+      @endif
+      <a href="{{ url('#') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"></a>
       </p>
     </header>
 

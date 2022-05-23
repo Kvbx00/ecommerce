@@ -81,14 +81,18 @@
 
       <p class="navbar">
       @if( auth()->check() )
-      {{ auth()->user()->name }}
-      <a href="{{ url('logout') }}">Wyloguj</a>
+      Zalogowany jako: &nbsp;
+      <b>{{ auth()->user()->name }}</b>
+      &nbsp;
+      <a href="{{ url('logout') }}"><img src="foto/exit.png" rel="logout" style="width:4%;"></a>
       @else
-      <a href="{{ url('login') }}">Zaloguj</a>
-      <a href="{{ url('registration') }}">Zarejestruj</a>
+      <a href="{{ url('login') }}"><img src="foto/enter.png" rel="login" style="width:4%;"></a>
+      <a href="{{ url('registration') }}"><img src="foto/add-user.png" rel="register" style="width:4%;"></a>
       @endif
-        <img src="foto/icons8-shopping-cart-promotion-60.png" rel="cart" style="width:5%;">
-        <!-- <a href="{{ url('login') }}"><img src="foto/icons8-user-60.png" rel="user" style="width:5%;"></a> -->
+      @if(Auth::check() && Auth::user()->role == "1")
+      <a href="{{ url('admin') }}"><img src="foto/leadership.png" rel="admin" style="width:4%;"></a>
+      @endif
+      <a href="{{ url('#') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"></a>
       </p>
 
     </header>

@@ -47,3 +47,5 @@ Route::post('registration', [RegistrationController::class, 'create']);
 Route::get('/login', [SessionsController::class, 'loginView']);
 Route::post('/login', [SessionsController::class, 'sessionStart']);
 Route::get('/logout', [SessionsController::class, 'sessionDestroy']);
+
+Route::get('/admin', [BaseController::class, 'admin']);

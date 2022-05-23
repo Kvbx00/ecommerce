@@ -11,7 +11,7 @@ class SessionsController extends Controller
         return view('login');
     }
 
-    public function sessionStart()
+    public function sessionStart(Request $request)
     {
         if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([
@@ -19,13 +19,16 @@ class SessionsController extends Controller
             ]);
         }
         
+        $request->session()->regenerate();
+
         return redirect()->to('/');
     }
 
-    public function sessionDestroy()
+    public function sessionDestroy(Request $request)
     {
         auth()->logout();
-        
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->to('/');
     }
 }

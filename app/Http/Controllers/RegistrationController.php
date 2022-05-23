@@ -11,7 +11,7 @@ class RegistrationController extends Controller
         return view('registration');
     }
 
-    public function create(){  
+    public function create(Request $request){  
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -24,6 +24,8 @@ class RegistrationController extends Controller
         
         auth()->login($user);
         
+        $request->session()->regenerate();
+
         return redirect()->to('/');
     }
 
