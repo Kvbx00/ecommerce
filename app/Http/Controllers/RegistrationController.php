@@ -18,6 +18,12 @@ class RegistrationController extends Controller
             'password' => 'required',
             'adress' => 'required',
             'phone' => 'required',
+        ],[
+            'name.required' => "Wpisałeś błędne imię i nazwisko",
+            'email.required' => "Wpisałeś nieprawidłowy email",
+            'password.required' => "Wpisałeś nieprawidłowe hasło",
+            'adress.required' => "Wpisałeś nieprawidłowy adres",
+            'phone.required' => "Wpisałeś nieprawidłowy numer telefonu"
         ]);
         
         $user = User::create(request(['name', 'email', 'password', 'adress', 'phone']));
