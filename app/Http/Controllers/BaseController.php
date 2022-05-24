@@ -53,7 +53,4 @@ class BaseController extends Controller
         return view('single', compact('show'));
     }
 
-    public function admin(){
-        return view('admin');
-    }
 }

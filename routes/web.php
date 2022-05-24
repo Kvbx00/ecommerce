@@ -5,6 +5,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,4 @@ Route::get('/login', [SessionsController::class, 'loginView']);
 Route::post('/login', [SessionsController::class, 'sessionStart']);
 Route::get('/logout', [SessionsController::class, 'sessionDestroy']);
 
-Route::get('/admin', [BaseController::class, 'admin']);
+Route::get('/admin', [AdminController::class, 'admin']);
