@@ -5,7 +5,7 @@
   <title>Kosmetyki samochodowe</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ asset('style.css') }}">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -169,7 +169,6 @@
       }
     }
 
-    // Click on the "Jeans" link on page load to open the accordion for demo purposes
     document.getElementById("myBtn").click();
 
 

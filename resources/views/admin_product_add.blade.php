@@ -46,7 +46,7 @@
       <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
         <a href="{{ url('admin_product_add') }}" class="w3-bar-item w3-button">Dodawanie</a>
         <a href="{{ url('admin_product_delete') }}" class="w3-bar-item w3-button">Usuwanie</a>
-        <a href="{{ url('#') }}" class="w3-bar-item w3-button">Edycja</a>
+        <a href="{{ url('admin_product_edit') }}" class="w3-bar-item w3-button">Edycja</a>
       </div>
 
       <a href="{{ url('#') }}" class="w3-bar-item w3-button">Użytkownicy</a>
@@ -89,6 +89,65 @@
       </p>
 
     </header>
+
+    <div class="admin-main">
+      <div style="margin-bottom:50px">
+        <h3><b>Dodawanie produktów</b></h3>
+      </div>
+      <form action="admin_product_add" method="POST">
+        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+        <table class="tableadd">
+          <tr>
+            <td>Nazwa produktu</td>
+            <td><input class="Iaddprod" type='text' name='product_name' /></td>
+          </tr>
+          <tr>
+            <td>Producent</td>
+            <td><input class="Iaddprod" type="text" name='product_brand' /></td>
+          </tr>
+          <tr>
+            <td>Cena</td>
+            <td><input class="Iaddprod" type="number" name='product_price' /></td>
+          </tr>
+          <tr>
+            <td>Opis</td>
+            <td><input class="Iaddprod" type="text" name='product_description' /></td>
+          </tr>
+          <tr>
+            <td>Dostępność/ilość</td>
+            <td><input class="Iaddprod" type="number" name='product_availability' /></td>
+          </tr>
+          <tr>
+            <td>Kategoria</td>
+            <td>
+              <select name="product_category">
+                <option value="shampoo">Szampon</option>
+                <option value="foam">Piana aktywna</option>
+                <option value="brush">Szczotki</option>
+                <option value="sponge">Gąbki</option>
+                <option value="microfibre">Mikrofibry</option>
+                <option value="wax">Woski</option>
+                <option value="quick">Quick detailery</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Zdjęcie</td>
+            <td><input class="Iaddprod" type="text" name='image' /></td>
+          </tr>
+          <tr>
+            <td colspan='2'>
+              @if ($errors->any())
+              @foreach ($errors->all() as $error)
+              <div>{{$error}}</div>
+              @endforeach
+              @endif
+              <input class="Iaddprodbut" type='submit' value="Dodaj produkt" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
 
     <script>
       // Accordion 
