@@ -121,13 +121,13 @@
             <td>Kategoria</td>
             <td>
               <select name="product_category">
-                <option value="shampoo">Szampon</option>
-                <option value="foam">Piana aktywna</option>
-                <option value="brush">Szczotki</option>
-                <option value="sponge">Gąbki</option>
-                <option value="microfibre">Mikrofibry</option>
-                <option value="wax">Woski</option>
-                <option value="quick">Quick detailery</option>
+                <option value="Szampony">Szampon</option>
+                <option value="Piany aktywne">Piany aktywne</option>
+                <option value="Szczotki">Szczotki</option>
+                <option value="Gąbki">Gąbki</option>
+                <option value="Mikrofibry">Mikrofibry</option>
+                <option value="Woski">Woski</option>
+                <option value="Quick detailery">Quick detailery</option>
               </select>
             </td>
           </tr>

@@ -68,9 +68,9 @@
         <input class="l-input" type="text" placeholder="Adres" name="adress">
         <input class="l-input" type="text" placeholder="Numer telefonu" name="phone">
         @if ($errors->any())
-          @foreach ($errors->all() as $error)
-            <div>{{$error}}</div>
-          @endforeach
+        @foreach ($errors->all() as $error)
+        <div>{{$error}}</div>
+        @endforeach
         @endif
         <button class="submit-login" type="submit">Zarejestruj</button></br>
         <a href="{{ url('login') }}" class="regirestration">Mam już konto, chce się zalogować.</a>

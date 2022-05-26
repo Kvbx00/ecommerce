@@ -65,7 +65,7 @@
         <input class="l-input" type="text" placeholder="Email" name="email">
         <input class="l-input" type="password" placeholder="Hasło" name="password">
         @if ($errors->has('message'))
-          {{ $errors->first('message') }}
+        {{ $errors->first('message') }}
         @endif
         <button class="submit-login" type="submit">Zaloguj</button></br>
         <a href="{{ url('registration') }}" class="regirestration">Nie mam konta, chce się zarejestrować</a>

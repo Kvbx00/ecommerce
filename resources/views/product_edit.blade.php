@@ -98,45 +98,56 @@
                 @csrf
                 <table class="tableadd">
                     <tr>
-                    <td>Nazwa produktu</td>
+                        <td>Nazwa produktu</td>
                         <td>
-                        <input class="Iaddprod" type='text' name='product_name' value="{{$products->product_name}}" />
+                            <input class="Iaddprod" type='text' name='product_name' value="{{$products->product_name}}" />
                         </td>
                     </tr>
                     <tr>
-                    <td>Producent</td>
+                        <td>Producent</td>
                         <td>
-                        <input class="Iaddprod" type="text" name='product_brand' value="{{$products->product_brand}}" />
+                            <input class="Iaddprod" type="text" name='product_brand' value="{{$products->product_brand}}" />
                         </td>
                     </tr>
                     <tr>
-                    <td>Cena</td>
+                        <td>Cena</td>
                         <td>
-                        <input class="Iaddprod" type="number" name='product_price' value="{{$products->product_price}}" />
+                            <input class="Iaddprod" type="number" name='product_price' value="{{$products->product_price}}" />
                         </td>
                     </tr>
                     <tr>
-                    <td>Opis</td>
+                        <td>Opis</td>
                         <td>
-                        <input class="Iaddprod" type="text" name='product_description' value="{{$products->product_description}}" />
+                            <input class="Iaddprod" type="text" name='product_description' value="{{$products->product_description}}" />
                         </td>
                     </tr>
                     <tr>
-                    <td>Dostępność/ilość</td>
+                        <td>Dostępność/ilość</td>
                         <td>
-                        <input class="Iaddprod" type="number" name='product_availability' value="{{$products->product_availability}}" />
+                            <input class="Iaddprod" type="number" name='product_availability' value="{{$products->product_availability}}" />
                         </td>
                     </tr>
                     <tr>
-                    <td>Kategoria</td>
-                        <td>
+                        <td>Kategoria</td>
+                        <!-- <td>
                         <input class="Iaddprod" type="text" name='product_category' value="{{$products->product_category}}" />
+                        </td> -->
+                        <td>
+                            <select name="product_category" value="{{$products->product_category}}">
+                                <option value="Szampony">Szampony</option>
+                                <option value="Piany aktywne">Piany aktywne</option>
+                                <option value="Szczotki">Szczotki</option>
+                                <option value="Gąbki">Gąbki</option>
+                                <option value="Mikrofibry">Mikrofibry</option>
+                                <option value="Woski">Woski</option>
+                                <option value="Quick detailery">Quick detailery</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
-                    <td>Zdjęcie</td>
+                        <td>Zdjęcie</td>
                         <td>
-                        <input class="Iaddprod" type="text" name='image' value="{{$products->image}}" />
+                            <input class="Iaddprod" type="text" name='image' value="{{$products->image}}" />
                         </td>
                     </tr>
                     <tr>

@@ -18,7 +18,7 @@ class SessionsController extends Controller
                 'message' => 'Email lub hasło są nieprawidłowe.'
             ]);
         }
-        
+
         $request->session()->regenerate();
 
         return redirect()->to('/');

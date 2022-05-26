@@ -111,7 +111,9 @@
           <td>{{ $product->product_name }}</td>
           <td>{{ $product->product_brand }}</td>
           <td>{{ $product->product_price }}</td>
-          <td><div class="maxi">{{ $product->product_description }}</div></td>
+          <td>
+            <div class="maxi">{{ $product->product_description }}</div>
+          </td>
           <td>{{ $product->product_availability }}</td>
           <td>{{ $product->product_category }}</td>
           <td>{{ $product->image }}</td>

@@ -54,9 +54,9 @@ Route::get('/admin', [AdminController::class, 'admin']);
 Route::get('/admin_product_add', [AdminController::class, 'ProdInsert']);
 Route::post('admin_product_add', [AdminController::class, 'product_create']);
 
-Route::get('admin_product_delete',[AdminController::class, 'select_product']);
+Route::get('admin_product_delete', [AdminController::class, 'select_product']);
 Route::get('delete/{id}', [AdminController::class, 'destroy_product']);
 
-Route::get('admin_product_edit',[AdminController::class, 'ProdEdit']);
-Route::get('product_edit/{id}',[AdminController::class, 'product_edit']);
-Route::post('admin_product_edit/{id}',[AdminController::class, 'product_update']);
+Route::get('admin_product_edit', [AdminController::class, 'ProdEdit']);
+Route::get('product_edit/{id}', [AdminController::class, 'product_edit']);
+Route::post('admin_product_edit/{id}', [AdminController::class, 'product_update']);
