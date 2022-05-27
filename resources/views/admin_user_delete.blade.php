@@ -107,34 +107,35 @@
 
         <div class="admin-main">
             <div style="margin-bottom:50px">
-                <h3><b>Edycja produktów</b></h3>
+                <h3><b>Usuwanie użytkowników</b></h3>
             </div>
             <table class="tabledelete">
                 <tr>
                     <td>ID</td>
-                    <td>Nazwa produktu</td>
-                    <td>Producent</td>
-                    <td>Cena</td>
-                    <td>Opis</td>
-                    <td>Ilość</td>
-                    <td>Kategoria</td>
-                    <td>Zdjęcie</td>
+                    <td>Imię i nazwisko</td>
+                    <td>Email</td>
+                    <td>Hasło</td>
+                    <td>Data utworzenia</td>
+                    <td>Data aktualizacji</td>
+                    <td>Adress</td>
+                    <td>Numer telefonnu</td>
+                    <td>Rola</td>
                 </tr>
-                @foreach ($products as $product)
+                @foreach ($users as $user)
                 <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->product_name }}</td>
-                    <td>{{ $product->product_brand }}</td>
-                    <td>{{ $product->product_price }}</td>
-                    <td>
-                        <div class="maxi">{{ $product->product_description }}</div>
-                    </td>
-                    <td>{{ $product->product_availability }}</td>
-                    <td>{{ $product->product_category }}</td>
-                    <td>{{ $product->image }}</td>
-                    <td><a href="{{ url('product_edit/'.$product->id) }}">Edycja</a></td>
+                    <td>{{ $user->id }}</td>
+                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->password }}</td>
+                    <td>{{ $user->created_at }}</td>
+                    <td>{{ $user->updated_at }}</td>
+                    <td>{{ $user->adress }}</td>
+                    <td>{{ $user->phone }}</td>
+                    <td>{{ $user->role }}</td>
+                    <td><a href='user_delete/{{ $user->id }}'>Usuń</a></td>
                 </tr>
                 @endforeach
+            </table>
         </div>
 
         <script>

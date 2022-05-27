@@ -46,11 +46,26 @@
       <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
         <a href="{{ url('admin_product_add') }}" class="w3-bar-item w3-button">Dodawanie</a>
         <a href="{{ url('admin_product_delete') }}" class="w3-bar-item w3-button">Usuwanie</a>
-        <a href="{{ url('#') }}" class="w3-bar-item w3-button">Edycja</a>
+        <a href="{{ url('admin_product_edit') }}" class="w3-bar-item w3-button">Edycja</a>
       </div>
 
-      <a href="{{ url('#') }}" class="w3-bar-item w3-button">Użytkownicy</a>
-      <a href="{{ url('#') }}" class="w3-bar-item w3-button">Zamówienia</a>
+      <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Użytkownicy <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{{ url('admin_user_add') }}" class="w3-bar-item w3-button">Dodawanie</a>
+        <a href="{{ url('admin_user_delete') }}" class="w3-bar-item w3-button">Usuwanie</a>
+        <a href="{{ url('admin_user_edit') }}" class="w3-bar-item w3-button">Edycja</a>
+      </div>
+
+      <a onclick="myAccFunc2()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Zamówienia <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc2" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="{{ url('admin_order_add') }}" class="w3-bar-item w3-button">Dodawanie</a>
+        <a href="{{ url('admin_order_delete') }}" class="w3-bar-item w3-button">Usuwanie</a>
+        <a href="{{ url('admin_order_edit') }}" class="w3-bar-item w3-button">Edycja</a>
+      </div>
 
     </div>
 
@@ -94,6 +109,24 @@
       // Accordion 
       function myAccFunc() {
         var x = document.getElementById("demoAcc");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+
+      function myAccFunc1() {
+        var x = document.getElementById("demoAcc1");
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else {
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+
+      function myAccFunc2() {
+        var x = document.getElementById("demoAcc2");
         if (x.className.indexOf("w3-show") == -1) {
           x.className += " w3-show";
         } else {

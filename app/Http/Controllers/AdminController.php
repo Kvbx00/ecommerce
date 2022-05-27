@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\ProdInsert;
+use App\UserInsert;
 
 class AdminController extends Controller
 {
@@ -20,6 +21,8 @@ class AdminController extends Controller
         }
         return view('admin');
     }
+
+    ///Dodwanie produktów
 
     public function ProdInsert()
     {
@@ -57,6 +60,8 @@ class AdminController extends Controller
         return redirect()->to('admin_product_add');
     }
 
+    ///Usuwanie produktów
+
     public function select_product()
     {
         $products = DB::select('select * from product');
@@ -71,6 +76,7 @@ class AdminController extends Controller
         return redirect()->to('admin_product_delete');
     }
 
+    ///Edycja produktów
 
     public function ProdEdit()
     {
@@ -102,5 +108,57 @@ class AdminController extends Controller
         $products->image = $request->input('image');
         $products->update();
         return redirect()->to('admin_product_edit');
+    }
+
+    ///Dodawanie uzytkownikow
+
+    public function UserInsert()
+    {
+        if ((Auth::check() && Auth::user()->role == "1") == false) {
+            return redirect()->action([BaseController::class, 'mainProduct']);
+        }
+        return view('admin_user_add');
+    }
+
+    public function user_create()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'adress' => 'required',
+            'phone' => 'required',
+            'role',
+        ], [
+            'name.required' => "Wpisałeś błędne imię i nazwisko",
+            'email.required' => "Wpisałeś nieprawidłowy email",
+            'password.required' => "Wpisałeś nieprawidłowe hasło",
+            'adress.required' => "Wpisałeś nieprawidłowy adres",
+            'phone.required' => "Wpisałeś nieprawidłowy numer telefonu",
+            'role' => "Wpisałeś błędną rolę",
+        ]);
+
+        UserInsert::create(request([
+            'name', 'email', 'password', 'adress',
+            'phone', 'role'
+        ]));
+
+        return redirect()->to('admin_user_add');
+    }
+
+    ///Usuwanie produktów
+
+    public function select_user()
+    {
+        $users = DB::select('select * from users');
+        if ((Auth::check() && Auth::user()->role == "1") == false) {
+            return redirect()->action([BaseController::class, 'mainProduct']);
+        }
+        return view('admin_user_delete', ['users' => $users]);
+    }
+    public function destroy_user($id)
+    {
+        DB::delete('delete from users where id = ?', [$id]);
+        return redirect()->to('admin_user_delete');
     }
 }
