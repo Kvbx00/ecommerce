@@ -12,7 +12,7 @@ class UserInsert extends Model
 	protected $table = 'users';
 
     protected $fillable = [
-        'name', 'email', 'password', 'adress', 'phone', 'role'
+        'name', 'email', 'password', 'created_at', 'updated_at', 'adress', 'phone', 'role'
     ];
 
     protected $hidden = [

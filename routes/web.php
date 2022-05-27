@@ -66,3 +66,7 @@ Route::post('admin_user_add', [AdminController::class, 'user_create']);
 
 Route::get('admin_user_delete', [AdminController::class, 'select_user']);
 Route::get('user_delete/{id}', [AdminController::class, 'destroy_user']);
+
+Route::get('admin_user_edit', [AdminController::class, 'UserEdit']);
+Route::get('user_edit/{id}', [AdminController::class, 'user_edit']);
+Route::post('admin_user_edit/{id}', [AdminController::class, 'user_update']);

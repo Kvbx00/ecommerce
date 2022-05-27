@@ -94,58 +94,40 @@
             <div style="margin-bottom:50px">
                 <h3><b>Edycja produtku</b></h3>
             </div>
-            <form action="{{ url('admin_product_edit/'.$products->id) }}" method="POST">
+            <form action="{{ url('admin_user_edit/'.$users->id) }}" method="POST">
                 @csrf
                 <table class="tableadd">
                     <tr>
-                        <td>Nazwa produktu</td>
-                        <td>
-                            <input class="Iaddprod" type='text' name='product_name' value="{{$products->product_name}}" />
-                        </td>
+                        <td>Imię i nazwisko</td>
+                        <td><input class="Iaddprod" type='text' name='name' value="{{$users->name}}"/></td>
                     </tr>
                     <tr>
-                        <td>Producent</td>
-                        <td>
-                            <input class="Iaddprod" type="text" name='product_brand' value="{{$products->product_brand}}" />
-                        </td>
+                        <td>Email</td>
+                        <td><input class="Iaddprod" type="text" name='email' value="{{$users->email}}"/></td>
                     </tr>
                     <tr>
-                        <td>Cena</td>
-                        <td>
-                            <input class="Iaddprod" type="number" name='product_price' value="{{$products->product_price}}" />
-                        </td>
+                        <td>Hasło</td>
+                        <td><input class="Iaddprod" type="text" name='password' value="{{$users->password}}"/></td>
                     </tr>
                     <tr>
-                        <td>Opis</td>
-                        <td>
-                            <input class="Iaddprod" type="text" name='product_description' value="{{$products->product_description}}" />
-                        </td>
+                        <td>Data utworzenia</td>
+                        <td><input class="Iaddprod" type="datetime" name='created_at' value="{{$users->created_at}}"/></td>
                     </tr>
                     <tr>
-                        <td>Dostępność/ilość</td>
-                        <td>
-                            <input class="Iaddprod" type="number" name='product_availability' value="{{$products->product_availability}}" />
-                        </td>
+                        <td>Data aktualizacji</td>
+                        <td><input class="Iaddprod" type="datetime" name='updated_at' value="{{$users->updated_at}}"/></td>
                     </tr>
                     <tr>
-                        <td>Kategoria</td>
-                        <td>
-                            <select name="product_category" value="{{$products->product_category}}">
-                                <option value="Szampony">Szampony</option>
-                                <option value="Piany aktywne">Piany aktywne</option>
-                                <option value="Szczotki">Szczotki</option>
-                                <option value="Gąbki">Gąbki</option>
-                                <option value="Mikrofibry">Mikrofibry</option>
-                                <option value="Woski">Woski</option>
-                                <option value="Quick detailery">Quick detailery</option>
-                            </select>
-                        </td>
+                        <td>Adres</td>
+                        <td><input class="Iaddprod" type="text" name='adress' value="{{$users->adress}}"/></td>
                     </tr>
                     <tr>
-                        <td>Zdjęcie</td>
-                        <td>
-                            <input class="Iaddprod" type="text" name='image' value="{{$products->image}}" />
-                        </td>
+                        <td>Telefon</td>
+                        <td><input class="Iaddprod" type="number" name='phone' value="{{$users->phone}}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Rola</td>
+                        <td><input class="Iaddprod" type="number" name='role' value="{{$users->role}}"/></td>
                     </tr>
                     <tr>
                         <td colspan='2'>

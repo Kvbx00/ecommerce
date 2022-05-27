@@ -146,7 +146,7 @@ class AdminController extends Controller
         return redirect()->to('admin_user_add');
     }
 
-    ///Usuwanie produktów
+    ///Usuwanie użytkowników
 
     public function select_user()
     {
@@ -161,4 +161,40 @@ class AdminController extends Controller
         DB::delete('delete from users where id = ?', [$id]);
         return redirect()->to('admin_user_delete');
     }
+
+        ///Edycja produktów
+
+        public function UserEdit()
+        {
+            $users = UserInsert::all();
+            if ((Auth::check() && Auth::user()->role == "1") == false) {
+                return redirect()->action([BaseController::class, 'mainProduct']);
+            }
+            return view('admin_user_edit', compact('users'));
+        }
+    
+        public function user_edit($id)
+        {
+            $users = UserInsert::find($id);
+            if ((Auth::check() && Auth::user()->role == "1") == false) {
+                return redirect()->action([BaseController::class, 'mainProduct']);
+            }
+            return view('user_edit', compact('users'));
+        }
+    
+        public function user_update(Request $request, $id)
+        {
+            $users = UserInsert::find($id);
+            $users->name = $request->input('name');
+            $users->email = $request->input('email');
+            $users->password = $request->input('password');
+            $users->created_at = $request->input('created_at');
+            $users->updated_at = $request->input('updated_at');
+            $users->adress = $request->input('adress');
+            $users->phone = $request->input('phone');
+            $users->role = $request->input('role');
+            $users->update();
+            return redirect()->to('admin_user_edit');
+        }
+
 }
