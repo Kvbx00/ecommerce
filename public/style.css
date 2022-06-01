@@ -210,3 +210,31 @@ select{
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.center {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .pagination {
+    display: inline-block;
+  }
+
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 0 4px;
+  }
+  
+  .pagination a.active {
+    background-color: #d8d8d8;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
