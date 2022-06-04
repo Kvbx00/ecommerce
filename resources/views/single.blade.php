@@ -90,32 +90,28 @@
         @if(Auth::check() && Auth::user()->role == "1")
         <a href="{{ url('admin') }}"><img src="foto/leadership.png" rel="admin" style="width:4%;"></a>
         @endif
-        <a href="{{ url('#') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"></a>
+        <a href="{{ route('cart') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"><span class="count_cart">{{ count((array) session('cart')) }}</span></a>
       </p>
     </header>
 
     <div class="main-single">
       <div class="left-single">
-        @foreach ($show as $showData)
-        <img class="img-single" src="{{$showData->image}}" style="width:100%;">
-        @endforeach
+        @foreach ($products as $product)
+        <img class="img-single" src="{{$product->image}}" style="width:100%;">
       </div>
       <div class="right-single">
-        @foreach ($show as $showData)
-        <h2><b> {{$showData->product_name}} </b></h2>
+        <h2><b> {{$product->product_name}} </b></h2>
         <div class="desc-single">
-          {{$showData->product_description}}
-        </div>
-        <div class="availability-single">
-          <hr class="line">
-          Dostępność produktu: <b> {{$showData->product_availability}} </b> sztuk
-          <hr class="line">
+          {{$product->product_description}}
         </div>
         <div class="price-single">
-          <h3><b> {{$showData->product_price}} zł </b></h3>
+          <h3><b> {{$product->product_price}} zł </b></h3>
         </div>
         <div class="submit-single">
-          <button class="submit">DO KOSZYKA</button>
+          <p class="submit"><a href="{{ route('add.to.cart', $product->id) }}" class="a_button" role="button">Dodaj do koszyka</a> </p>
+            @if(session('success'))
+              {{ session('success') }}
+            @endif
         </div>
         @endforeach
       </div>

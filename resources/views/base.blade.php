@@ -92,8 +92,7 @@
         @if(Auth::check() && Auth::user()->role == "1")
         <a href="{{ url('admin') }}"><img src="foto/leadership.png" rel="admin" style="width:4%;"></a>
         @endif
-        <a href="{{ url('#') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"></a>
-      </p>
+        <a href="{{ route('cart') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"><span class="count_cart">{{ count((array) session('cart')) }}</span></a>
 
     </header>
 

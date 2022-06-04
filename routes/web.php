@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,9 @@ Route::get('user_delete/{id}', [AdminController::class, 'destroy_user']);
 Route::get('admin_user_edit', [AdminController::class, 'UserEdit']);
 Route::get('user_edit/{id}', [AdminController::class, 'user_edit']);
 Route::post('admin_user_edit/{id}', [AdminController::class, 'user_update']);
+
+Route::get('single', [ProductController::class, 'index']);  
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
