@@ -65,6 +65,7 @@
         <input class="l-input" type="text" placeholder="Imię i nazwisko" name="name">
         <input class="l-input" type="text" placeholder="Email" name="email">
         <input class="l-input" type="password" placeholder="Hasło" name="password">
+        <input class="l-input" type="password" placeholder="Powtórz hasło" name="password_confirmation">
         <input class="l-input" type="text" placeholder="Adres" name="adress">
         <input class="l-input" type="text" placeholder="Numer telefonu" name="phone">
         @if ($errors->any())

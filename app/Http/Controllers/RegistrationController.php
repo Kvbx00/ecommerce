@@ -15,17 +15,19 @@ class RegistrationController extends Controller
     public function create(Request $request)
     {
         $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'adress' => 'required',
-            'phone' => 'required',
+            'name' => 'required|regex:"[A-Z]{1}[a-z]"|min:3|max:40',
+            'email' => 'required|email|min:7|max:40|unique:users,Email',
+            'password' => 'required|confirmed|min:6|max:40|regex:"^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$"',
+            'adress' => 'required|regex:"[A-Z]{1}[a-z0-9]"',
+            'phone' => 'required|regex:"^[0-9-+]{12,12}$"|unique:users,phone',
         ], [
-            'name.required' => "Wpisałeś błędne imię i nazwisko",
+            'name.required' => "Imię i nazwisko musi się zaczynać od dużej litery",
             'email.required' => "Wpisałeś nieprawidłowy email",
-            'password.required' => "Wpisałeś nieprawidłowe hasło",
-            'adress.required' => "Wpisałeś nieprawidłowy adres",
-            'phone.required' => "Wpisałeś nieprawidłowy numer telefonu"
+            'password.required' => "Hasło musi posiadać minimum 1 dużę literę, 1 małą literę, 
+            1 znak specjalny, 1 cyfrę oraz minimum 8 znaków długości",
+            'password.confirmed' => "Hasła się nie zgadzają",
+            'adress.required' => "Miasto oraz ulica musi się zaczynać dużą literą",
+            'phone.required' => "Nieprawidłowy numer telefonu format +48---------"
         ]);
 
         $user = User::create(request(['name', 'email', 'password', 'adress', 'phone']));
