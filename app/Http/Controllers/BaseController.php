@@ -9,7 +9,7 @@ class BaseController extends Controller
 {
     public function mainProduct()
     {
-        $show = DB::table('product')->whereBetween('id', [8, 15])->get();
+        $show = DB::table('product')->orderBy('id', 'desc')->take(8)->get();
         return view('base', compact('show'));
     }
 

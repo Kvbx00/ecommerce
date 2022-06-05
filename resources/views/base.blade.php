@@ -97,18 +97,22 @@
     </header>
 
     <!-- Image header -->
+    <div class="error_message">
+        @if($errors->any())
+        <b>{!! implode('', $errors->all(':message')) !!}</b>
+        @endif
+      </div>
     <div class="w3-display-container w3-container">
       <img src="foto/main.jpg" alt="Main" style="width:100%">
       <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
         <h1 class="w3-jumbo w3-hide-small">Nowe kosmetyki</h1>
         <h1 class="w3-hide-large w3-hide-medium">Nowa kolekcja</h1>
         <h1 class="w3-hide-small">#DETAILINGOBSESSED</h1>
-        <p><a href="#" class="w3-button w3-black w3-padding-large w3-large">ZOBACZ</a></p>
       </div>
     </div>
 
     <div class="w3-container w3-text-grey">
-      <p>8 items</p>
+      <p style="text-align:center; font-size:20px;">Nasze najnowsze produkty!</p>
     </div>
 
     <!-- Product grid -->
