@@ -49,8 +49,14 @@
                 <a href="{{ url('admin_product_edit') }}" class="w3-bar-item w3-button">Edycja</a>
             </div>
 
-            <a href="{{ url('#') }}" class="w3-bar-item w3-button">Użytkownicy</a>
-            <a href="{{ url('#') }}" class="w3-bar-item w3-button">Zamówienia</a>
+            <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+                Użytkownicy <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+                <a href="{{ url('admin_user_add') }}" class="w3-bar-item w3-button">Dodawanie</a>
+                <a href="{{ url('admin_user_delete') }}" class="w3-bar-item w3-button">Usuwanie</a>
+                <a href="{{ url('admin_user_edit') }}" class="w3-bar-item w3-button">Edycja</a>
+            </div>
 
         </div>
 
@@ -99,35 +105,35 @@
                 <table class="tableadd">
                     <tr>
                         <td>Imię i nazwisko</td>
-                        <td><input class="Iaddprod" type='text' name='name' value="{{$users->name}}"/></td>
+                        <td><input class="Iaddprod" type='text' name='name' value="{{$users->name}}" /></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input class="Iaddprod" type="text" name='email' value="{{$users->email}}"/></td>
+                        <td><input class="Iaddprod" type="text" name='email' value="{{$users->email}}" /></td>
                     </tr>
                     <tr>
                         <td>Hasło</td>
-                        <td><input class="Iaddprod" type="text" name='password' value="{{$users->password}}"/></td>
+                        <td><input class="Iaddprod" type="text" name='password' value="{{$users->password}}" /></td>
                     </tr>
                     <tr>
                         <td>Data utworzenia</td>
-                        <td><input class="Iaddprod" type="datetime" name='created_at' value="{{$users->created_at}}"/></td>
+                        <td><input class="Iaddprod" type="datetime" name='created_at' value="{{$users->created_at}}" /></td>
                     </tr>
                     <tr>
                         <td>Data aktualizacji</td>
-                        <td><input class="Iaddprod" type="datetime" name='updated_at' value="{{$users->updated_at}}"/></td>
+                        <td><input class="Iaddprod" type="datetime" name='updated_at' value="{{$users->updated_at}}" /></td>
                     </tr>
                     <tr>
                         <td>Adres</td>
-                        <td><input class="Iaddprod" type="text" name='adress' value="{{$users->adress}}"/></td>
+                        <td><input class="Iaddprod" type="text" name='adress' value="{{$users->adress}}" /></td>
                     </tr>
                     <tr>
                         <td>Telefon</td>
-                        <td><input class="Iaddprod" type="number" name='phone' value="{{$users->phone}}"/></td>
+                        <td><input class="Iaddprod" type="number" name='phone' value="{{$users->phone}}" /></td>
                     </tr>
                     <tr>
                         <td>Rola</td>
-                        <td><input class="Iaddprod" type="number" name='role' value="{{$users->role}}"/></td>
+                        <td><input class="Iaddprod" type="number" name='role' value="{{$users->role}}" /></td>
                     </tr>
                     <tr>
                         <td colspan='2'>
@@ -142,6 +148,15 @@
             // Accordion 
             function myAccFunc() {
                 var x = document.getElementById("demoAcc");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+
+            function myAccFunc1() {
+                var x = document.getElementById("demoAcc1");
                 if (x.className.indexOf("w3-show") == -1) {
                     x.className += " w3-show";
                 } else {
