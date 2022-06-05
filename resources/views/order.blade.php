@@ -99,45 +99,54 @@
 
         <div class="cart-main">
             <div style="margin-bottom:50px">
-                <h3><b>Koszyk</b></h3>
+                <h3><b>Dane płatności</b></h3>
             </div>
-            <table id="cart" class="tablecart">
-                <tr class="table_tr">
-                    <td>PRODUKTY</td>
-                    <td></td>
-                    <td>CENA</td>
-                    <td>ILOŚĆ</td>
-                    <td>WARTOŚĆ</td>
-                    <td></td>
-                </tr>
-                @php $total = 0 @endphp
-                @if(session('cart'))
-                @foreach(session('cart') as $id => $details)
-                @php $total += $details['price'] * $details['quantity'] @endphp
-                <tr data-id="{{ $id }}">
-                    <td data-th="Product" td style="width:20%">
-                        <img src="{{ $details['image'] }}" width="50%" />
-                    </td>
-                    <td style="width:30%">{{ $details['name'] }}</td>
-                    <td style="display:none" data-th="id">{{ $details['id'] }}</td>
-                    <td data-th="Price" style="width:10%">{{ $details['price'] }} zł</td>
-                    <td data-th="Quantity" style="width:10%">
-                        <input type="number" value="{{ $details['quantity'] }}" class="Iaddprod quantity update-cart" />
-                    </td>
-                    <td data-th="Subtotal" style="width:15%">{{ $details['price'] * $details['quantity'] }} zł</td>
-                    <td class="actions" data-th="">
-                        <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
-                    </td>
-                </tr>
-                @endforeach
-                @endif
-            </table>
-            <div class="submit-cart">
-                <h4>Razem do zapłaty: &nbsp;<b>{{ $total }} zł</b>
-                    <h4>
-                        <!-- <p class="btn-success"><a href="{{ url('/') }}" class="btn btn-warning">Kontynuuj zakupy</a></p> -->
-                        <button class="btn btn-success" onclick="location.href='order'">Podsumowanie</button>
-            </div>
+            <form action="{{ url('order') }}" method="POST">
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                <table class="tableadd">
+                    <tr>
+                        <td>Imię i nazwisko</td>
+                        <td><input class="Iaddprod" type='text' value="{{ Auth::user()->name}}" name='name' /></td>
+                    </tr>
+                    <tr>
+                        <td>Adres e-mail</td>
+                        <td><input class="Iaddprod" type="text" value="{{ Auth::user()->email}}" name='email' /></td>
+                    </tr>
+                    <tr>
+                        <td>Adres</td>
+                        <td><input class="Iaddprod" type="text" value="{{ Auth::user()->adress}}" name='adress' /></td>
+                    </tr>
+                    <tr>
+                        <td>Numer telefonu</td>
+                        <td><input class="Iaddprod" type="text" value="{{ Auth::user()->phone}}" name='phone' /></td>
+                    </tr>
+                </table>
+                <table class="tablecheckout">
+                    <tr>
+                        <td>PRODUKTY</td>
+                        <td>ILOŚĆ</td>
+                        <td>CENA</td>
+                    </tr>
+                    @php $total = 0 @endphp
+                    @if(session('cart'))
+                    @foreach(session('cart') as $id => $details)
+                    @php $total += $details['price'] * $details['quantity'] @endphp
+                    <tr data-id="{{ $id }}">
+                        <td data-th="Product">
+                            {{ $details['name'] }}
+                        </td>
+                        <td data-th="Quantity">{{ $details['quantity'] }} </td>
+                        <td data-th="Price">{{ $details['price'] }} zł</td>
+                        @endforeach
+                        @endif
+                    <tr>
+                        <td style="border:none;"></td>
+                        <td style="border:none;"></td>
+                        <td style="border:none;">Razem do zapłaty: {{ $total }} zł </td>
+                    </tr>
+                </table>
+                <button type="submit" class="submit" style="width:70%; margin-top: 10px;">Złóż zamówienie</button>
+            </form>
         </div>
 
         <!-- Footer -->
@@ -195,45 +204,6 @@
             document.getElementById("mySidebar").style.display = "none";
             document.getElementById("myOverlay").style.display = "none";
         }
-
-        $(".update-cart").change(function(e) {
-            e.preventDefault();
-
-            var ele = $(this);
-
-            $.ajax({
-                url: "{{ route('update.cart') }}",
-                method: "patch",
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    id: ele.parents("tr").attr("data-id"),
-                    quantity: ele.parents("tr").find(".quantity").val()
-                },
-                success: function(response) {
-                    window.location.reload();
-                }
-            });
-        });
-
-        $(".remove-from-cart").click(function(e) {
-            e.preventDefault();
-
-            var ele = $(this);
-
-            if (confirm("Czy na pewno chcesz usunąć produkt?")) {
-                $.ajax({
-                    url: "{{ route('remove.from.cart') }}",
-                    method: "DELETE",
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        id: ele.parents("tr").attr("data-id")
-                    },
-                    success: function(response) {
-                        window.location.reload();
-                    }
-                });
-            }
-        });
     </script>
 
 </body>

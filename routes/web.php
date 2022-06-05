@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('base');
 });
 
+Route::get('/order', function () {
+    return view('order');
+});
+
 Route::get('/', [BaseController::class, 'mainProduct']);
 
 Route::get('/shampoo', [BaseController::class, 'shampoo']);
@@ -77,3 +81,5 @@ Route::get('cart', [ProductController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
+
+Route::post('order', [ProductController::class, 'checkout']);

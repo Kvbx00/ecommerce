@@ -312,3 +312,17 @@ select {
     margin-right: 2%;
     text-align: right;
 }
+
+.tablecheckout {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 5%;
+}
+
+.tablecheckout td,
+.table th {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word;
+}

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ProdInsert;
 use Illuminate\Support\Facades\DB;
+use App\Order;
+use App\OrderItem;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -30,6 +33,7 @@ class ProductController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
+                "id" => $product->id,
                 "name" => $product->product_name,
                 "quantity" => 1,
                 "price" => $product->product_price,
@@ -71,6 +75,32 @@ class ProductController extends Controller
             }
             session()->flash('success', 'Pomyślnie usunąłeś produkt z koszyka');
         }
+    }
+
+    public function checkout(Request $request)
+    {
+        $cart = session()->get('cart');
+
+        $totalAmount = 0;
+
+        foreach ($cart as $details) {
+            $totalAmount += $details['price'] * $details['quantity'];
+        }
+        $order = new Order();
+        $order->user_id = Auth::user()->id;
+        $order->amount = $totalAmount;
+        $order->save();
+
+
+
+        $orderItem = new OrderItem();
+        $orderItem->order_id = $order->id;
+        $orderItem->product_id = $details['id'];
+        $orderItem->quantity = $details['quantity'];
+        $orderItem->amount = $details['price'];
+        $orderItem->save();
+
+
     }
 
 }
