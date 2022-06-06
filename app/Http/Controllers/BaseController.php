@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\ProdInsert;
 
 class BaseController extends Controller
 {
@@ -60,5 +61,11 @@ class BaseController extends Controller
         $id = $_GET['id'];
         $show = DB::table('product')->where('id', $id)->get();
         return view('single', compact('show'));
+    }
+
+    public function search(Request $request){
+        $query = $request->input('query');
+        $searched_items = ProdInsert::where('product_name', 'like', "%$query%")->get();
+        return view('search', compact('searched_items'));
     }
 }

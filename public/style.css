@@ -275,12 +275,12 @@ select {
 .table th {
     padding: 8px;
     word-wrap: break-word;
-    border-bottom:  1px solid rgb(172, 172, 172);
+    border-bottom: 1px solid rgb(172, 172, 172);
 }
 
-.table_tr{
-    border-top:  1px solid rgb(172, 172, 172);
-    border-bottom:  1px solid rgb(172, 172, 172);
+.table_tr {
+    border-top: 1px solid rgb(172, 172, 172);
+    border-bottom: 1px solid rgb(172, 172, 172);
     background-color: rgb(241, 241, 241);
 }
 
@@ -307,7 +307,7 @@ select {
     opacity: 0.6
 }
 
-.submit-cart{
+.submit-cart {
     margin-top: 2%;
     margin-right: 2%;
     text-align: right;
@@ -327,7 +327,77 @@ select {
     word-wrap: break-word;
 }
 
-.error_message{
+.error_message {
     text-align: center;
     margin-bottom: 3%;
+}
+
+
+
+/* @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700"); */
+
+/* * {
+  font-family: Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+} */
+
+.flexbox {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.search {
+  margin-right: 20px;
+}
+
+.search > .a {
+  display: inline-block;
+  position: relative;
+}
+
+.search > .a:after {
+  content: "";
+  background: rgb(0, 0, 0);
+  width: 4px;
+  height: 10px;
+  position: absolute;
+  top: 20px;
+  right: 1px;
+  transform: rotate(135deg);
+}
+
+.search > .a > .iSearch {
+  color: rgb(0, 0, 0);
+  font-size: 13px;
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  border: solid 3px rgb(0, 0, 0);
+  outline: none;
+  border-radius: 35px;
+  transition: width 0.5s;
+}
+
+.search > .a > .iSearch::placeholder {
+  color: #777777;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+}
+
+.search > .a > .iSearch:focus::placeholder {
+  opacity: 1;
+}
+
+.search > .a > .iSearch:focus,
+.search > .a > .iSearch:not(:placeholder-shown) {
+  width: 250px;
 }

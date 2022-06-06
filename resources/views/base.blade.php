@@ -95,6 +95,17 @@
         <a href="{{ route('cart') }}"><img src="foto/shopping-cart.png" rel="cart" style="width:4%;"><span class="count_cart">{{ count((array) session('cart')) }}</span></a>
 
     </header>
+    
+    <!-- Search field -->
+    <div class="flexbox">
+      <form action="search" method="GET" autocomplete="on">
+        <div class="search">
+          <div class="a">
+            <input type="text" class="iSearch" name="query" placeholder="Szukaj . . ." required>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <!-- Image header -->
     <div class="error_message">

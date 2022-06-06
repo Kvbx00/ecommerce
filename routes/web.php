@@ -83,3 +83,5 @@ Route::patch('update-cart', [ProductController::class, 'update'])->name('update.
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 Route::post('order', [ProductController::class, 'checkout']);
+
+Route::get('/search', [BaseController::class, 'search']);
