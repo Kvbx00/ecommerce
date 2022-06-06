@@ -103,14 +103,25 @@ class ProductController extends Controller
         $order->amount = $totalAmount;
         $order->save();
 
+        $data = [];
 
+        foreach ($cart as $item) {
+            $data['items'] = [
+                [
+                    'name' => $item['name'],
+                    'quantity' => $item['quantity'],
+                    'price' => $item['price'],
+                ]
+            ];
 
         $orderItem = new OrderItem();
         $orderItem->order_id = $order->id;
-        $orderItem->product_id = $details['id'];
-        $orderItem->quantity = $details['quantity'];
-        $orderItem->amount = $details['price'];
+        $orderItem->product_id = $item['id'];
+        $orderItem->quantity = $item['quantity'];
+        $orderItem->amount = $item['price'];
         $orderItem->save();
+
+        }
 
         if ($orderItem->save()) {
             session()->forget('cart');
